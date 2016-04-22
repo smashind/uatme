@@ -271,4 +271,5 @@ Devise.setup do |config|
   elsif Rails.env.production?
     config.omniauth :google_oauth2, ENV["GOOGLE_CLIENT_ID"], ENV["GOOGLE_CLIENT_SECRET"], scope: 'email', info_fields: 'email, name'
   end
+  config.secret_key = 'afa7fbfcde200596567ce999b355533d58af7d4b62cd5bc63f3284a8d4146444625bd8a199ec2e338a14d71dfacd273305187272802119b0dae6fd75169dbacd'
 end
