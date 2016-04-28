@@ -15,7 +15,8 @@ gem 'omniauth-google-oauth2'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
-gem 'materialize-sass'
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'bootswatch-rails'
 gem "slim-rails"
 
 # Test Suite

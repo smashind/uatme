@@ -14,4 +14,8 @@
  *= require_self
  */
 
-@import "materialize";
+@import "variables";
+@import "bootstrap-sprockets";
+@import "bootswatch/paper/variables";
+@import "bootstrap";
+@import "bootswatch/paper/bootswatch";

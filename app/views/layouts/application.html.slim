@@ -7,23 +7,18 @@ html
 
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => 'reload'
     = javascript_include_tag 'application', 'data-turbolinks-track' => 'reload'
+    link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css" rel="stylesheet"
     meta content="width=device-width, initial-scale=1.0" name="viewport" /
 
   body
-    nav
-      .container
-        .nav-wrapper
-          = link_to "UAT Me", root_path, class: "brand-logo"
-          ul#nav-mobile.right.hide-on-med-and-down
-            - if user_signed_in?
-              li = link_to "Hey #{current_user.name}", edit_user_registration_path
-              li = link_to "Sign out", destroy_user_session_path,:method => :delete
-            - else
-              li = link_to "Sign up", new_user_registration_path
-              li = link_to "Sign in", new_user_session_path
-              li = link_to "Sign in with Google", user_google_oauth2_omniauth_authorize_path
+    = render partial: "nav"
     
     .container
-      p.notice = notice
-      p.alert = alert
+      <a href="#" class="btn btn-default">Default</a>
+      <a href="#" class="btn btn-primary">Primary</a>
+      <a href="#" class="btn btn-success">Success</a>
+      <a href="#" class="btn btn-info">Info</a>
+      <a href="#" class="btn btn-warning">Warning</a>
+      <a href="#" class="btn btn-danger">Danger</a>
+      <a href="#" class="btn btn-link">Link</a>
       = yield
