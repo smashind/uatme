@@ -1,0 +1,13 @@
+.form-horizontal
+  = form_for @doc do |f|
+    .form-group
+      .col-lg-12
+        = f.text_field :title, placeholder: "UAT Title", class: "form-control"
+
+    .form-group
+      .col-lg-12
+        = f.text_area :description, placeholder: "UAT Details", class: "form-control"
+
+    .form-group
+      .col-lg-12
+        = f.submit "Save UAT", class: "btn btn-primary"  

@@ -29,7 +29,7 @@ end
 
 # Development testing
 group :development, :test do 
-  gem 'rspec-rails'
+  gem 'rspec-rails', '3.5.0.beta3'
   gem 'factory_girl_rails'
   gem 'byebug'
 end
