@@ -20,7 +20,7 @@ gem 'bootswatch-rails'
 gem "slim-rails"
 
 # Test Suite
-group :test do 
+group :test do
 	gem 'capybara'
 	gem 'launchy'
 	gem 'database_cleaner', github: 'bmabey/database_cleaner'
@@ -28,7 +28,7 @@ group :test do
 end
 
 # Development testing
-group :development, :test do 
+group :development, :test do
   gem 'rspec-rails', '3.5.0.beta3'
   gem 'factory_girl_rails'
   gem 'byebug'

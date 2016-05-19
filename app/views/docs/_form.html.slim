@@ -1,4 +1,4 @@
-.form-horizontal
+.form-horizontal#doc-body
   = form_for @doc do |f|
     .form-group
       .col-lg-12
@@ -7,6 +7,21 @@
     .form-group
       .col-lg-12
         = f.text_area :description, placeholder: "UAT Details", class: "form-control"
+
+    #sections
+      .section-section
+        = f.fields_for :sections do |section_form|
+          .form-group
+            .col-lg-12.new-section
+              = section_form.text_field :heading, placeholder: "Heading", class: "form-control section-heading"
+            .section-items
+              - 1.times { section_form.object.send(:items).build }
+              = section_form.fields_for :items do |item_form|
+                .col-lg-12.new-item
+                  = item_form.text_field :content, placeholder: "Item", class: "form-control"
+          
+              = link_to "New Item", "#", class: "btn new-item-button"
+            = link_to "New Section", "#", class: "btn new-section-button"
 
     .form-group
       .col-lg-12

@@ -1,7 +1,7 @@
 nav.navbar.navbar-inverse
   .container
     .navbar-header
-      button.navbar-toggle.collapsed data-target="#main-menu" data-toggle="collapse" type="button" 
+      button.navbar-toggle.collapsed data-target="#main-menu" data-toggle="collapse" type="button"
         span.sr-only Toggle navigation
         span.icon-bar
         span.icon-bar
@@ -12,6 +12,7 @@ nav.navbar.navbar-inverse
         - if user_signed_in?
           li = link_to "Hey #{current_user.name}", edit_user_registration_path
           li = link_to "New UAT", new_doc_path
+          li = link_to "All UATs", docs_path
           li = link_to "Sign out", destroy_user_session_path, :method => :delete
         - else
           li = link_to "Sign up", new_user_registration_path

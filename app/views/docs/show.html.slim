@@ -1,2 +1,7 @@
 h2 = @doc.title
 p = @doc.description
+- @doc.sections.each do |section|
+  h4 = section.heading
+  ol
+    - section.items.each do |item|
+      li = item.content

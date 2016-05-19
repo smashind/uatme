@@ -11,6 +11,7 @@ class DocsController < ApplicationController
 
   def new
     @doc = Doc.new
+    1.times { @doc.sections.build }
   end
 
   def create
@@ -20,8 +21,8 @@ class DocsController < ApplicationController
       flash[:notice] = "Your UAT was successfully created."
       redirect_to doc_path(@doc)
     else
-      flash.now[:alert] = "Your UAT wasn't saved."
-      render "edit"
+      flash.now[:alert] = @doc.errors.full_messages
+      render "new"
     end
   end
 
@@ -32,6 +33,6 @@ class DocsController < ApplicationController
     end
 
     def doc_params
-      params.require(:doc).permit(:title, :description)
+      params.require(:doc).permit(:title, :description, sections_attributes: [:id, :heading, items_attributes: [:id, :content]])
     end
 end

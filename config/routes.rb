@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :sections
+  resources :items
   resources :docs
   devise_for :users, :controllers => { :omniauth_callbacks => "omniauth_callbacks" }
   root to: 'pages#home'
