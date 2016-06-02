@@ -42,9 +42,28 @@ document.addEventListener("turbolinks:load", function() {
   $('#doc-body').on({
     click: function(e) {
       e.preventDefault();
-      var thisTime = Date.now();
-      $('#sections').append(newSection(thisTime));
-      $("#doc_sections_attributes_" + thisTime + "_heading").focus();
+      //var thisTime = Date.now();
+      var section = $(this).parent().find('input');
+      var sectionId = section.attr('id');
+      var secId = sectionId.split("_")[3];
+      var newSec = parseInt(secId) + 1;
+      // Add new section
+      $(this).parent().parent().after(newSection(newSec));
+
+      // Focus cursor on new section
+      $("#doc_sections_attributes_" + newSec + "_heading").focus();
+
+      // Rename/ReID any subsequent headings
+      $(this).parent().parent().nextAll().each(function (i) {
+        var modSection = $(this).find('input');
+        var modSectionId = modSection.attr('id');
+        var modSecId = modSectionId.split("_")[3];
+        var newSecId = parseInt(modSecId) + 1;
+        var newId = "doc_sections_attributes_" + newSecId + "_heading"
+        var newName = "doc[sections_attributes][" + newSecId + "][heading]"
+        modSection.attr("id", newId).attr("name", newName);
+      });
+
     }
   }, '.new-section-button');
 });
